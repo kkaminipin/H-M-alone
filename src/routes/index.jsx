@@ -4,8 +4,21 @@ import Root from '../pages/Root';
 import Products from '../pages/Products';
 import ErrorPage from '../pages/ErrorPage';
 import ProductDetail from '../pages/ProductDetail';
+import { useEffect, useState } from 'react';
 
 const Routers = () => {
+  const [productList, setProductList] = useState([]);
+  const getProducts = async () => {
+    const url = 'https://my-json-server.typicode.com/kkaminipin/H-M/products';
+    const response = await fetch(url);
+    const data = await response.json();
+    setProductList(data);
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -14,11 +27,11 @@ const Routers = () => {
     },
     {
       path: '/products',
-      element: <Products />,
+      element: <Products productList={productList} />,
     },
     {
       path: '/products/:id',
-      element: <ProductDetail />,
+      element: <ProductDetail productList={productList} />,
     },
   ]);
 

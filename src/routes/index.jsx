@@ -4,12 +4,18 @@ import Root from '../pages/Root';
 import Products from '../pages/Products';
 import ErrorPage from '../pages/ErrorPage';
 import ProductDetail from '../pages/ProductDetail';
+import Login from '../pages/Login';
+import { useState } from 'react';
 
 const Routers = () => {
+  const [loginStatus, setLoginStatus] = useState(false);
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Root />,
+      element: (
+        <Root loginStatus={loginStatus} setLoginStatus={setLoginStatus} />
+      ),
       errorElement: <ErrorPage />,
     },
     {
@@ -18,7 +24,11 @@ const Routers = () => {
     },
     {
       path: '/products/:id',
-      element: <ProductDetail />,
+      element: <ProductDetail loginStatus={loginStatus} />,
+    },
+    {
+      path: '/login',
+      element: <Login setLoginStatus={setLoginStatus} />,
     },
   ]);
 

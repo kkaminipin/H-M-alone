@@ -1,4 +1,6 @@
 // import React from 'react';
+import PropTypes from 'prop-types';
+
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({ setLoginStatus }) => {
@@ -29,5 +31,7 @@ const Login = ({ setLoginStatus }) => {
     </div>
   );
 };
-
+Login.propTypes = {
+  setLoginStatus: PropTypes.func.isRequired,
+};
 export default Login;

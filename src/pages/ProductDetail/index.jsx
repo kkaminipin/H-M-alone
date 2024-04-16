@@ -1,4 +1,5 @@
 // import React from 'react';
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
@@ -29,5 +30,7 @@ const ProductDetail = ({ loginStatus }) => {
     <Navigate to='/login' />
   );
 };
-
+ProductDetail.propTypes = {
+  loginStatus: PropTypes.bool.isRequired,
+};
 export default ProductDetail;

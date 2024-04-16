@@ -1,9 +1,10 @@
 // import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 const Root = ({ loginStatus, setLoginStatus }) => {
-  console.log(loginStatus);
   const navigate = useNavigate();
   const logout = () => {
     setLoginStatus(false);
@@ -28,5 +29,8 @@ const Root = ({ loginStatus, setLoginStatus }) => {
     </div>
   );
 };
-
+Root.propTypes = {
+  loginStatus: PropTypes.bool.isRequired,
+  setLoginStatus: PropTypes.func.isRequired,
+};
 export default Root;

@@ -1,7 +1,7 @@
 // import React from 'react'
-
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Layout from '../../Layout';
 
 const Products = () => {
   const [productsList, setProductsList] = useState([]);
@@ -18,22 +18,24 @@ const Products = () => {
   }, []);
 
   return (
-    <div>
-      <h1>상품들 소개</h1>
-      <ul>
-        {productsList.map((product) => {
-          return (
-            <li key={product.id}>
-              <Link to={`${product.id}`}>
-                <div>
-                  <h3>{product.title}</h3>
-                </div>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <Layout>
+      <div>
+        <h1>상품들 소개</h1>
+        <ul>
+          {productsList.map((product) => {
+            return (
+              <li key={product.id}>
+                <Link to={`${product.id}`}>
+                  <div>
+                    <h3>{product.title}</h3>
+                  </div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </Layout>
   );
 };
 

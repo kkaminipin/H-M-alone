@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-
+import Layout from '../../Layout';
 const Root = ({ loginStatus, setLoginStatus }) => {
   const navigate = useNavigate();
   const logout = () => {
@@ -12,7 +12,7 @@ const Root = ({ loginStatus, setLoginStatus }) => {
   };
 
   return (
-    <div>
+    <Layout>
       <h1>메인 페이지입니다!!!</h1>
       {loginStatus ? (
         <button type='button' onClick={logout}>
@@ -26,7 +26,7 @@ const Root = ({ loginStatus, setLoginStatus }) => {
           <Link to={'/products'}>상품보기</Link>
         </li>
       </ul>
-    </div>
+    </Layout>
   );
 };
 Root.propTypes = {

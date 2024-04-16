@@ -1,14 +1,20 @@
 // import React from 'react';
+import PropTypes from 'prop-types';
 import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 
-const index = () => {
+const Layout = ({ children }) => {
+  // console.log(children);
   return (
-    <div>
-      <Header></Header>
-      <Footer></Footer>
-    </div>
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
   );
 };
 
-export default index;
+Layout.propTypes = {
+  children: PropTypes.array.isRequired,
+};
+export default Layout;
